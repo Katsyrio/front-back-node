@@ -20,9 +20,19 @@ app.get('/', (req, res) => {
     res.render('home', { style: 'home.css' });
 });
 
+// Rota para a página de sobre nós html + css + javascript
+app.get('/about', (req, res) => {
+    res.render('about', { style: 'about.css'});
+});
+
 // Rota para a página de login html + css + javascript
 app.get('/login', (req, res) => {
     res.render('login', { style: 'login.css', script: 'login.js' });
+});
+
+// Rota para a página de login html + css + javascript
+app.get('/produtos', (req, res) => {
+    res.render('produtos', { style: 'produtos.css', script: 'produtos.js' });
 });
 
 // Rota para adicionar um novo cadastro
