@@ -1,3 +1,2 @@
-Código teste para um projeto onde foi introduzido a linkagem do banco de dados com o front-end via Node Express.
-
+Este projeto foi desenvolvido como parte do meu aprendizado na faculdade, com o objetivo de aplicar e solidificar os conceitos aprendidos em aula. Utiliza HTML/handlebars, CSS, JavaScript, Bootstrap, Node.js, Express e integração com banco de dados. Sinta-se à vontade para explorar!
 
