@@ -6,6 +6,7 @@
     <title>Produtos</title>
     <link rel="stylesheet" href="css/produtos.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -30,37 +31,69 @@
 
 <br>
 <h3>Estoque</h3>
-<button class="add">Adicionar Produto</button>
+
+<button class="add" id="myBtn">Adicionar Produto</button>
+<!-- Elemento de fundo para cobrir toda a tela -->
+    <div class="modal-background" id="modalBackground"></div>
+
+    <!-- O modal existente -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="formaddprodutos">
+              <form action="/add-produtos" method="POST">
+                <label for="adfadfadf">Nome:</label><br>
+                <input type="text" id="adfadfadf" name="nomepost"><br><br>
+
+                <label for="fafafadf">Quantidade:</label><br>
+                <input type="number" id="fafafadf" name="quantidadepost"><br><br>
+
+                <label for="adfadfadf">Valor:</label><br>
+                <input type="number" id="adfadfadf" name="valorpost"><br><br>   
+
+                <label for="fadfad">Código de Barras:</label><br>
+                <input type="text" id="fadfad" name="codpost"><br><br>
+                <div class="adicionarbtnmodal">
+                <button>Adicionar</button>
+                </div>
+              </form>
+            </div>
+            
+        </div>
+    </div>
+
+
 
 <div class="table">
 <table class="table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col">QUANT</th>
+      <th scope="col">ID</th>
       <th scope="col">NOME</th>
+      <th scope="col">QUANTIDADE</th>
       <th scope="col">VALOR</th>
       <th scope="col">CÓDIGO DE BARRAS</th>
+   
     </tr>
   </thead>
   <tbody>
+    {{#each produtos}}
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th>{{id}}</th>
+      <td>{{Nomeprod}}</td>
+      <th>{{Quantidade}}</th>
+      <td>R$ {{Valor}}</td>
+      <td>{{Codbarra}}
+        <form action="/del-produtos" method="post">
+        <input type="hidden" name="id" value="{{id}}">
+        <div class="lixeira">
+  <button class="x"><strong>X</strong></button>
+        </div>
+        </form>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {{/each}}
   </tbody>
 </table>
 </div>
@@ -75,5 +108,6 @@
 	</nav>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"></script>
+<SCRipt src="js/produtos.js"></SCRipt>
 </body>
 </html>

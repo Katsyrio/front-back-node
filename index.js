@@ -30,10 +30,36 @@ app.get('/login', (req, res) => {
     res.render('login', { style: 'login.css', script: 'login.js' });
 });
 
-// Rota para a página de login html + css + javascript
+// Rota para a página de produtos html + css + js
 app.get('/produtos', (req, res) => {
-    res.render('produtos', { style: 'produtos.css', script: 'produtos.js' });
+    db.sequelize.query('SELECT * FROM produtos', { type: db.sequelize.QueryTypes.SELECT })
+    .then(listaprodutos => {
+        res.render('produtos', {produtos: listaprodutos, style:'produtos.css', script: 'produtos.js'})
+    })     
 });
+
+app.post('/add-produtos', function(req, res) {
+    produtos.create({
+        Nomeprod: req.body.nomepost,
+        Quantidade: req.body.quantidadepost,
+        Valor: req.body.valorpost,
+        Codbarra: req.body.codpost,
+    }).then(() => {
+        res.redirect('/produtos');
+    });
+});
+
+app.post('/del-produtos', function(req, res) {
+    const produtoid=req.body.id;
+    produtos.destroy({
+        where:{
+            id: produtoid
+        }
+    }).then(function() {
+        res.redirect('/produtos')
+    })
+})
+
 
 // Rota para adicionar um novo cadastro
 app.post("/add-cadastros", function(req, res) {

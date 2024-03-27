@@ -30,6 +30,7 @@ a {
     margin-top: 20px;
     padding-left: 200px;
     padding-right: 200px;
+    text-align-last: center;
 }
 
 h3{
@@ -44,4 +45,72 @@ h3{
     width: 250px;
     background-color: #00fff2;
     position: relative;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    top: 0;
+    transform: translateX(80%); /* Centralize horizontalmente */
+    width: 60%; /* Definir a largura da janela modal */
+    max-width: 600px; /* Largura máxima da janela modal */
+    height: auto; /* Altura automatica */
+    overflow: auto; /* Habilitar rolagem, se necessário */
+}
+
+.modal-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Cobrir toda a largura da tela */
+    height: 100%; /* Cobrir toda a altura da tela */
+    background-color: rgba(0, 0, 0, 0.4); /* Preto com opacidade */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%; /* Defina a largura da modal-content como 100% */
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.formaddprodutos {
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.x{
+    color: red;
+    background: none;
+    border: none;
+    text-align: right;
+    line-height: 0px;
+    font-size: x-large;
+    margin-left: 300px;
+}
+
+.lixeira{
+    text-align: center;
+    line-height: 0px;
+    margin-top: -14px;
 }
